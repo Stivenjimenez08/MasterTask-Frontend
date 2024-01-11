@@ -1,20 +1,13 @@
 import * as React from 'react';
-import Box from '@mui/material/Box';
-import Drawer from '@mui/material/Drawer';
-import AppBar from '@mui/material/AppBar';
-import CssBaseline from '@mui/material/CssBaseline';
-import Toolbar from '@mui/material/Toolbar';
-import List from '@mui/material/List';
-import Typography from '@mui/material/Typography';
-import Divider from '@mui/material/Divider';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import { Box, Drawer, AppBar, Toolbar, CssBaseline, Divider, List, Typography} from '@mui/material';
+import ListIcon from '@mui/icons-material/List';
+import LogoutIcon from '@mui/icons-material/Logout';
+import TableRowsIcon from '@mui/icons-material/TableRows';
+import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
+import InsertInvitationIcon from '@mui/icons-material/InsertInvitation';
+import { ListItemBtn } from '../../components/atoms/ListItem';
 
-const drawerWidth = 240;
+const drawerWidth = 230;
 
 export const LayoutPages = ({children}) => {
   return (
@@ -23,7 +16,7 @@ export const LayoutPages = ({children}) => {
       <AppBar position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}>
         <Toolbar>
           <Typography variant="h6" noWrap component="div">
-            Clipped drawer
+            Master Task
           </Typography>
         </Toolbar>
       </AppBar>
@@ -38,16 +31,11 @@ export const LayoutPages = ({children}) => {
         <Toolbar />
         <Box sx={{ overflow: 'auto' }}>
           <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton>
-                  <ListItemIcon>
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} />
-                </ListItemButton>
-              </ListItem>
-            ))}
+           <ListItemBtn title={'Task Board'} route={"/notes/Dragpage"}> <TableRowsIcon/> </ListItemBtn>
+           <ListItemBtn title={'Tasks'} route={"/notes/Taskpage"}> <ListIcon/> </ListItemBtn>
+           <ListItemBtn title={'Calendar'} route={"/notes/Calendarpage"}> <InsertInvitationIcon/> </ListItemBtn>
+           <ListItemBtn title={'Profile'} route={"/notes/Userpage"}> <ManageAccountsIcon/> </ListItemBtn>
+           <ListItemBtn title={'Logout'} > <LogoutIcon/> </ListItemBtn>
           </List>
           
         </Box>

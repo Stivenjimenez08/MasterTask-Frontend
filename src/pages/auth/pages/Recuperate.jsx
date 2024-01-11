@@ -8,7 +8,7 @@ export const Recuperate = () => {
 
   return (
     
-    <Layout title="Recupera tu cuenta">
+    <Layout title="Recover your account">
       <form action="">
         <Grid container>
           <FormControl fullWidth  variant="standard">
@@ -25,7 +25,7 @@ export const Recuperate = () => {
           <Grid container spacing={2} sx={{ mb: 2 }}>
             <Grid item xs={12} sx={{ mt: 2 }}>
               <Button  fullWidth id="button">
-                Enviar enlace de recuperacion
+                send recovery link
               </Button>
             </Grid>
           </Grid>
@@ -33,7 +33,7 @@ export const Recuperate = () => {
 
         <Grid container direction="row" justifyContent="end">
           <Link component={RouterLink} underline="none" to="/auth/login" id="link">
-            Volver a iniciar sesion
+            Back to login
           </Link>
         </Grid>
       </form>

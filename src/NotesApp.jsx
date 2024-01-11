@@ -1,8 +1,8 @@
-import React from 'react'
+
 import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
-import {Home} from '/src/pages/home/Home'
 import { ThemeApp } from './Mui/ThemeApp'
 import { AuthRoutes } from './pages/auth/Routes/AuthRoutes'
+import { PagesRoutes } from './pages/Routes/PagesRoutes'
 
 
 export const NotesApp = () => {
@@ -11,8 +11,7 @@ export const NotesApp = () => {
       <Router>
         <Routes>
           <Route path='/auth/*' element ={<AuthRoutes/>}/>
-          <Route path='/*' element ={<Home/>}/>
-
+          <Route path='/notes/*' element ={<PagesRoutes/>}/>
         </Routes>
       </Router>
     </ThemeApp>

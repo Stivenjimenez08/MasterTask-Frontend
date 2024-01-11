@@ -16,7 +16,7 @@ export const Login = () => {
 
   return (
     
-    <Layout title="Iniciar sesion" id="layout">
+    <Layout title="LOGIN" id="layout">
       <form action="">
         <Grid container>
 
@@ -42,7 +42,7 @@ export const Login = () => {
                     onClick={handleClickShowPassword}
                     onMouseDown={handleMouseDownPassword}
                   >
-                    {showPassword ? <VisibilityOff /> : <Visibility />}
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
                   </IconButton>
                 </InputAdornment>
                 }
@@ -60,13 +60,13 @@ export const Login = () => {
 
         <Grid container direction="row" justifyContent="end">
           <Link  component={RouterLink} underline="none" to="/auth/register" id="link">
-            Crear una cuenta
+            Create an account
           </Link>
         </Grid>
 
         <Grid container direction="row" justifyContent="end">
           <Link component={RouterLink} underline="none" to="/auth/recuperate" id="link" sx={{ mt: 1 }} >
-            ¿No puedes iniciar sesión?
+            Can't sign in?
           </Link>
         </Grid>
       </form>

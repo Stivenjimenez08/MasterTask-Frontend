@@ -16,7 +16,7 @@ export const Register = () => {
   const handleMouseDownPassword = (event) => { event.preventDefault(); };
 
   return (
-    <Layout title="Crea una cuenta">
+    <Layout title="Create an account">
       <form action="">
         <Grid container>
           <FormControl fullWidth variant="standard" >
@@ -65,14 +65,14 @@ export const Register = () => {
         <Grid container spacing={2} sx={{ mb: 2 }}>
           <Grid item xs={12} sx={{ mt: 2 }}>
             <Button  fullWidth id="button">
-              Crear cuenta
+              Create an account
             </Button>
           </Grid>
         </Grid>
 
         <Grid container direction="row" justifyContent="end">
           <Link component={RouterLink} underline="none" to="/auth/login" sx={{ mt: 2, ml: 1 }} id="link">
-          ¿ya tienes cuenta? Ingresar
+            Already have an account? Enter
           </Link>
         </Grid>
       </form>
