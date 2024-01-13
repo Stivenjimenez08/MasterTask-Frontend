@@ -16,7 +16,7 @@ export const Login = () => {
 
   return (
     
-    <Layout title="LOGIN" id="layout">
+    <Layout title="Login" id="layout">
       <form action="">
         <Grid container>
 

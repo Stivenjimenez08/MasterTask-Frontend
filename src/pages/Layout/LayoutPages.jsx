@@ -8,8 +8,11 @@ import InsertInvitationIcon from '@mui/icons-material/InsertInvitation';
 import { ListItemBtn } from '../../components/atoms/ListItem';
 
 const drawerWidth = 230;
+const img = 'https://www.w3schools.com/howto/img_avatar.png'
+const name='stiven jimenez'
 
 export const LayoutPages = ({children}) => {
+
   return (
     <Box sx={{ display: 'flex' }} >
       <CssBaseline />
@@ -28,7 +31,12 @@ export const LayoutPages = ({children}) => {
           [`& .MuiDrawer-paper`]: { width: drawerWidth, boxSizing: 'border-box' },
         }}
       >
-        <Toolbar />
+      <Toolbar />
+        <div className='contPhotoLayout'>
+          <img src={img} className='photolayout'/>
+          <p>{name}</p>
+        </div>
+        
         <Box sx={{ overflow: 'auto' }}>
           <List>
            <ListItemBtn title={'Task Board'} route={"/notes/Dragpage"}> <TableRowsIcon/> </ListItemBtn>
@@ -37,7 +45,6 @@ export const LayoutPages = ({children}) => {
            <ListItemBtn title={'Profile'} route={"/notes/Userpage"}> <ManageAccountsIcon/> </ListItemBtn>
            <ListItemBtn title={'Logout'} > <LogoutIcon/> </ListItemBtn>
           </List>
-          
         </Box>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
