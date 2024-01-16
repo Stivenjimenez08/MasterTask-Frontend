@@ -42,7 +42,7 @@ export const LayoutPages = ({children}) => {
            <ListItemBtn title={'Task Board'} route={"/notes/Dragpage"}> <TableRowsIcon/> </ListItemBtn>
            <ListItemBtn title={'Tasks'} route={"/notes/Taskpage"}> <ListIcon/> </ListItemBtn>
            <ListItemBtn title={'Calendar'} route={"/notes/Calendarpage"}> <InsertInvitationIcon/> </ListItemBtn>
-           <ListItemBtn title={'Profile'} route={"/notes/Userpage"}> <ManageAccountsIcon/> </ListItemBtn>
+           <ListItemBtn title={'Profile'} route={"/notes/UserPage"}> <ManageAccountsIcon/> </ListItemBtn>
            <ListItemBtn title={'Logout'} > <LogoutIcon/> </ListItemBtn>
           </List>
         </Box>

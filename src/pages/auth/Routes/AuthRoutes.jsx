@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
 import {Login, Register, Recuperate } from '../index'
-''
+
 export const AuthRoutes = () => {
   
   return (

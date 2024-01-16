@@ -37,7 +37,7 @@ export const Register = () => {
         onSubmit={async (values, { setSubmitting }) => {
           const response = await axios.post(`${import.meta.env.VITE_URL_SERVER}api/user/createUser`, values);
           console.log(response);
-          //setLoad(!load);
+          
           //   Swal.fire({
           //    tittle: "Info",
           //    text: response.data.msg,

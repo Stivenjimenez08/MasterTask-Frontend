@@ -1,11 +1,12 @@
-import { ShowProfile } from '../../components/index'
+
+import { EditProfile } from '../../components/index'
 import { LayoutPages } from '../Layout/LayoutPages'
 
-export const UserPage = () => {
+export const EditUser= () => {
 
   return (
     <LayoutPages>
-      <ShowProfile />
+      <EditProfile />
     </LayoutPages>
   )
 }
