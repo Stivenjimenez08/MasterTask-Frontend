@@ -136,3 +136,10 @@ body{
     display: flex;
     gap: 13rem;
 }
+
+.textFielForm{
+    width: 30rem;
+    display: flex;
+    flex-direction: column;
+    gap: .8rem;
+}

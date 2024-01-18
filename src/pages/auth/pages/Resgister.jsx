@@ -9,6 +9,7 @@ import { Formik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
 import "../../../style.css";
+import Swal from "sweetalert2";
 
 export const Register = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -20,7 +21,7 @@ export const Register = () => {
   };
 
   return (
-    <Layout title="Create an account">
+    <Layout title="Create an account" >
       <Formik
         initialValues={{ userName: "", email: "", password: "" }}
         validationSchema={Yup.object({
@@ -34,22 +35,22 @@ export const Register = () => {
             .required("Este campo es obligatorio")
             .min(8, "Complete 8 caracteres en el campo contraseña"),
         })}
-        onSubmit={async (values, { setSubmitting }) => {
+        onSubmit={async (values) => {
           const response = await axios.post(`${import.meta.env.VITE_URL_SERVER}api/user/createUser`, values);
           console.log(response);
           
-          //   Swal.fire({
-          //    tittle: "Info",
-          //    text: response.data.msg,
-          //    icon: "success"
-          // })
+            Swal.fire({
+             tittle: "Info",
+             text: response.data.msg,
+             icon: "success"
+           })
         }}
       >
-        {({ values, errors, handleChange, handleSubmit, isSubmitting }) => (
+        {({ values, errors, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
-            <Grid>
+            <div className="textFielForm">
+
               <TextField
-                fullWidth
                 id="userName"
                 name="userName"
                 label="Username"
@@ -68,7 +69,6 @@ export const Register = () => {
               />
 
               <TextField
-                fullWidth
                 id="email"
                 name="email"
                 label="Email"
@@ -87,7 +87,6 @@ export const Register = () => {
               />
 
               <TextField
-                fullWidth
                 id="password"
                 name="password"
                 label="Password"
@@ -104,25 +103,23 @@ export const Register = () => {
                         aria-label="toggle password visibility"
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
-                      >
+                        >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>
                     </InputAdornment>
                   ),
                 }}
-              />
-            </Grid>
+                />
 
-            <Grid item xs={12} sx={{ mt: 2 }}>
+            
               <Button
-                fullWidth
                 type="submit"
-                disabled={isSubmitting}
                 id="button"
-              >
+                >
                 Create an account
               </Button>
-            </Grid>
+            
+              </div>
 
             <Grid container direction="row" justifyContent="end">
               <Link

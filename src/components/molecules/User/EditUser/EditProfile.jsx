@@ -13,7 +13,6 @@ const id = 1;
 
 export const EditProfile = () => {
   const [data, setData] = useState([]);
-  const [message,setMessage]= useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -63,16 +62,15 @@ export const EditProfile = () => {
             .email("Direccion de correo no valida"),
           photo: Yup.string(),
         })}
-        onSubmit={async (values, { setSubmitting }) => {
+        onSubmit={async (values) => {
           const response = await axios.put(
             `${import.meta.env.VITE_URL_SERVER}api/user/updateUser`,
             values
             
           );
-          setMessage(response.data)
           Swal.fire({
             tittle: "Info",
-            text: message.msg,
+            text: response.data.msg,
             icon: "success",
           });
         }}

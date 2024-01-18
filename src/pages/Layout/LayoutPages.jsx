@@ -1,17 +1,30 @@
 import * as React from 'react';
-import { Box, Drawer, AppBar, Toolbar, CssBaseline, Divider, List, Typography} from '@mui/material';
+import { Box, Drawer, AppBar, Toolbar, CssBaseline, Divider, List, Typography, ListItemButton, ListItemIcon, ListItemText, ListItem} from '@mui/material';
 import ListIcon from '@mui/icons-material/List';
 import LogoutIcon from '@mui/icons-material/Logout';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import InsertInvitationIcon from '@mui/icons-material/InsertInvitation';
 import { ListItemBtn } from '../../components/atoms/ListItem';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { fetchLogout } from '../../lib/slice/authSlice';
 
 const drawerWidth = 230;
 const img = 'https://www.w3schools.com/howto/img_avatar.png'
 const name='stiven jimenez'
 
 export const LayoutPages = ({children}) => {
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const handleLogout = () =>{
+      dispatch(fetchLogout())
+      navigate('/auth/login')
+      console.log('salio de sesion')
+  }
+
 
   return (
     <Box sx={{ display: 'flex' }} >
@@ -43,7 +56,12 @@ export const LayoutPages = ({children}) => {
            <ListItemBtn title={'Tasks'} route={"/notes/Taskpage"}> <ListIcon/> </ListItemBtn>
            <ListItemBtn title={'Calendar'} route={"/notes/Calendarpage"}> <InsertInvitationIcon/> </ListItemBtn>
            <ListItemBtn title={'Profile'} route={"/notes/UserPage"}> <ManageAccountsIcon/> </ListItemBtn>
-           <ListItemBtn title={'Logout'} > <LogoutIcon/> </ListItemBtn>
+
+           <ListItemButton onClick={handleLogout} >
+            <ListItemIcon> <LogoutIcon/> </ListItemIcon>
+            <ListItemText>Logout</ListItemText>
+           </ListItemButton>
+           
           </List>
         </Box>
       </Drawer>
