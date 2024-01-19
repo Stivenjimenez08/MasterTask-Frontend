@@ -12,6 +12,14 @@ export const Taskpage = () => {
     navigate("/auth/login")
   }
 
+
+  const user = useSelector(state => state.auth.user)
+  const navigate = useNavigate()
+
+  if(!user){
+    navigate("/auth/login")
+  }
+
   return (
     <LayoutPages>
       <ShowTask/>
