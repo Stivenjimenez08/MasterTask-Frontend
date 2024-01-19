@@ -14,7 +14,6 @@ import { useNavigate } from "react-router-dom";
 const id = 1;
 
 export const EditPassword = () => {
-  const [message,setMessage]= useState('')
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate()
 
@@ -31,7 +30,7 @@ export const EditPassword = () => {
   const handleBack = () => {
     setTimeout (()=>{
       navigate("/notes/UserPage");
-    },200)
+    },100)
   };
 
   return (
@@ -52,10 +51,9 @@ export const EditPassword = () => {
             `${import.meta.env.VITE_URL_SERVER}api/user/updateUser`,
             values
           );
-          setMessage(response.data)
           Swal.fire({
             tittle: "Info",
-            text: message.msg,
+            text: response.data.msg,
             icon: "success",
           });
         }}

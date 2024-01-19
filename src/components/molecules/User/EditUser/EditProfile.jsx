@@ -8,24 +8,26 @@ import "../../../../style.css";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { useSelector } from "react-redux";
 
-const id = 1;
+
 
 export const EditProfile = () => {
+
+  const user = useSelector(state => state.auth.user)
   const [data, setData] = useState([]);
-  const [message,setMessage]= useState('')
   const navigate = useNavigate()
 
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        `${import.meta.env.VITE_URL_SERVER}api/user/userById/${id}`
+        `${import.meta.env.VITE_URL_SERVER}api/user/userById/${user?.id}`
       );
       setData(response.data.users);
     };
     fetchData();
   }, []);
-  
+  console.log()
   const handleComplete = () => {
     setTimeout (()=>{
       navigate("/notes/UserPage");
@@ -34,7 +36,7 @@ export const EditProfile = () => {
   const handleBack = () => {
     setTimeout (()=>{
       navigate("/notes/UserPage");
-    },200)
+    },100)
   };
 
   return (
@@ -42,13 +44,13 @@ export const EditProfile = () => {
       <Formik
         enableReinitialize
         initialValues={{
-          id,
-          names: data.names || "",
-          lastName: data.lastName || "",
-          email: data.email || "",
-          userName: data.userName || "",
-          photo: data.photo || "",
-          password: data.password,
+          id: user?.id,
+          names: data?.names || "",
+          lastName: data?.lastName || "",
+          email: data?.email || "",
+          userName: data?.userName || "",
+          photo: data?.photo || "",
+          password: data?.password,
         }}
         validationSchema={Yup.object({
           names: Yup.string()
@@ -63,16 +65,14 @@ export const EditProfile = () => {
             .email("Direccion de correo no valida"),
           photo: Yup.string(),
         })}
-        onSubmit={async (values, { setSubmitting }) => {
+        onSubmit={async (values) => {
           const response = await axios.put(
             `${import.meta.env.VITE_URL_SERVER}api/user/updateUser`,
             values
-            
           );
-          setMessage(response.data)
           Swal.fire({
             tittle: "Info",
-            text: message.msg,
+            text: response.data.msg,
             icon: "success",
           });
         }}

@@ -1,25 +1,29 @@
+import axios from "axios";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { Button, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
-import axios from "axios";
 import "../../../../style.css";
-import { useNavigate } from "react-router-dom";
 
 const img = "https://www.w3schools.com/howto/img_avatar.png";
 
 export const ShowProfile = () => {
 
+  const user = useSelector(state => state.auth.user)
+  console.log(user?.id)
+
   const [data, setData] = useState([]);
   const navigate = useNavigate()
 
-  const id = 1;
-
+  const fetchData = async () => {
+    const response = await axios.get(
+      `${import.meta.env.VITE_URL_SERVER}api/user/userById/${user?.id}`
+    );
+    console.log(response)
+    setData(response.data.users);
+  };
+  console.log(data)
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await axios.get(
-        `${import.meta.env.VITE_URL_SERVER}api/user/userById/${id}`
-      );
-      setData(response.data.users);
-    };
     fetchData();
   }, []);
 
@@ -35,7 +39,10 @@ export const ShowProfile = () => {
     <div className="formProfile">
       <h2>MY PROFILE</h2>
       <div className="contentprofile">
-        <img src={img} className="photo" />
+        {
+          (user?.photo) ? <img src={user?.photo} className='photolayout'/>  : <img src={img} className='photolayout'/> 
+        }
+        
       </div>
       <form>
         <div className="contentTexfield">
@@ -44,9 +51,9 @@ export const ShowProfile = () => {
             name="names"
             label="Names"
             variant="standard"
-            value={data.names}
+            value={data?.names}
             InputLabelProps={{
-              shrink: true,
+              shrink: true
             }}
           />
           <TextField
@@ -54,9 +61,9 @@ export const ShowProfile = () => {
             name="lastName"
             label="Last names"
             variant="standard"
-            value={data.lastName}
+            value={data?.lastName}
             InputLabelProps={{
-              shrink: true,
+              shrink: true
             }}
           />
         </div>
@@ -66,7 +73,7 @@ export const ShowProfile = () => {
             name="userName"
             label="Username"
             variant="standard"
-            value={data.userName}
+            value={data?.userName}
             InputLabelProps={{
               shrink: true,
             }}
@@ -77,7 +84,7 @@ export const ShowProfile = () => {
             name="email"
             label="Email"
             variant="standard"
-            value={data.email}
+            value={data?.email}
             InputLabelProps={{
               shrink: true,
             }}
