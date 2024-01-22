@@ -27,7 +27,7 @@ export const EditProfile = () => {
     };
     fetchData();
   }, []);
-  console.log()
+  
   const handleComplete = () => {
     setTimeout (()=>{
       navigate("/notes/UserPage");

@@ -16,16 +16,14 @@ const img = "https://www.w3schools.com/howto/img_avatar.png";
 export const LayoutPages = ({children}) => {
 
   const user = useSelector(state => state.auth.user)
-  console.log(user)
+
   const navigate = useNavigate()
   const dispatch = useDispatch()
 
   const handleLogout = () =>{
       dispatch(fetchLogout())
       navigate('/auth/login')
-      console.log('salio de sesion')
   }
-
 
   return (
     <Box sx={{ display: 'flex' }} >

@@ -10,7 +10,6 @@ const img = "https://www.w3schools.com/howto/img_avatar.png";
 export const ShowProfile = () => {
 
   const user = useSelector(state => state.auth.user)
-  console.log(user?.id)
 
   const [data, setData] = useState([]);
   const navigate = useNavigate()
@@ -19,10 +18,9 @@ export const ShowProfile = () => {
     const response = await axios.get(
       `${import.meta.env.VITE_URL_SERVER}api/user/userById/${user?.id}`
     );
-    console.log(response)
     setData(response.data.users);
   };
-  console.log(data)
+
   useEffect(() => {
     fetchData();
   }, []);

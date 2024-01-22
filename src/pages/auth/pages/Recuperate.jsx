@@ -18,7 +18,6 @@ export const Recuperate = () => {
         })}
         // onSubmit={async (values) => {
         //   const response = await axios.post(`${import.meta.env.VITE_URL_SERVER}api/user/createUser`, values);
-        //   console.log(response);
 
         //     Swal.fire({
         //      tittle: "Info",

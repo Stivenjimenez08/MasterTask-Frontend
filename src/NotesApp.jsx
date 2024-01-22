@@ -9,13 +9,11 @@ import { fetchValidateToken } from './lib/slice/authSlice'
 export const NotesApp = () => {
   
   const user = useSelector(state => state.auth.user)
-  console.log('Pp', user)
   const dispatch = useDispatch()
 
   useEffect(()=>{
     const fetchData = async () =>{
       const response = await dispatch(fetchValidateToken())
-      console.log(response)
     }
     fetchData()
   },[])
