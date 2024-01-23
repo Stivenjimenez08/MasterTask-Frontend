@@ -2,9 +2,11 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { Paper, IconButton } from "@mui/material";
-import DeleteIcon from '@mui/icons-material/Delete';
+import SpeedDial from '@mui/material/SpeedDial';
+import SpeedDialIcon from '@mui/material/SpeedDialIcon';
+import { Paper} from "@mui/material";
 import { EditTask } from "../EditTask/EditTask";
+import { CreateTask } from "../CreateTask/CreateTask";
 import '../../../StyleComponents.css'
 
 export const ShowTask = () => {
@@ -15,7 +17,24 @@ export const ShowTask = () => {
   const [data, setData] = useState([]);
   const [selectedNote, setSelectedNote] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isCreateTaskDialogOpen, setIsCreateTaskDialogOpen] = useState(false);
+
   
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByUser/${user?.id}`
+      );
+      setData(response.data.note);
+    } catch (error) {
+      console.error("Error al obtener datos:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [update]);
+
   const handleCardClick = (note) => {
     setSelectedNote(note);
     setIsDialogOpen(true);
@@ -23,28 +42,23 @@ export const ShowTask = () => {
   const handleCloseDialog = () => {
     setIsDialogOpen(false);
   };
-  const handleSaveNote = (updatedNote) => {
-    
-    setUpdate(prevState => !prevState);
+  const handleSaveNote = () => {
+    setUpdate(prev => !prev);
     setIsDialogOpen(false);
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByUser/${user?.id}`
-        );
-        setData(response.data.note);
-      } catch (error) {
-        console.error("Error al obtener datos:", error);
-      }
-    };
-    fetchData();
-  }, [update]);
+  const handleOpenCreateTaskDialog = () => {
+    setIsCreateTaskDialogOpen(true);
+  };
+  
 
   return (
     <>
+    <SpeedDial
+        ariaLabel="SpeedDial basic example"
+        sx={{ position: 'absolute', bottom: 50, right: 30 }}
+        icon={<SpeedDialIcon />}
+        onClick={handleOpenCreateTaskDialog}
+      />
       <div className="contentCards">
         {data.map((note) => (
           <Paper elevation={3} key={note.id} className="note" onClick={() => handleCardClick(note)}>
@@ -58,7 +72,8 @@ export const ShowTask = () => {
             </Paper>
         ))}
       </div>
-      <EditTask isOpen={isDialogOpen} handleClose={handleCloseDialog} note={selectedNote} handleSave={handleSaveNote} />
+      <CreateTask isOpen={isCreateTaskDialogOpen} handleClose={() => setIsCreateTaskDialogOpen(false)} />
+      <EditTask isOpen={isDialogOpen} handleClose={handleCloseDialog} note={selectedNote} handleSave={handleSaveNote} fetchData={fetchData} />
     </>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Dialog,
   DialogTitle,
   DialogContent,
@@ -12,62 +12,33 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-import { DeleteTask } from "../DeleteTask/DeleteTask";
+import * as Yup from "yup";
 import Swal from "sweetalert2";
+import { useSelector } from "react-redux";
 
-export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) => {
 
-  const id = note?.id;
-  const [data, setData] = useState([]);
-  const [isDeleteDialogOpen, setIsDeleteDialogOpen] = useState(false);
+export const CreateTask = ({ isOpen, handleClose }) => {
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteById/${id}`
-        );
-        
-        setData(response.data.note);
-      } catch (error) {
-        console.error("Error al obtener datos:", error);
-      }
-    };
-    fetchData();
-  }, [note]);
-
-  const handleDeleteComplete = () => {
-    handleClose(); 
-    setIsDeleteDialogOpen(false); 
-  };
-
-  const handleOpenDeleteDialog = () => {
-    setIsDeleteDialogOpen(true);
-  };
-
-  const handleCloseDeleteDialog = () => {
-    setIsDeleteDialogOpen(false);
-  };
+  const {id}= useSelector(state => state.auth.user)
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
       <Formik
-        enableReinitialize
-        initialValues={{
-          id: data[0]?.id,
-          title: data[0]?.title || "",
-          description: data[0]?.description || "",
-          expirationDate: data[0]?.expirationDate || "",
-          idPriority: data[0]?.idPriority || "",
-          idState: data[0]?.idState || "",
-        }}
-        onSubmit={async (values) => {
+        initialValues={{ title: "", description: "", expirationDate: "", idPriority: "", idState: "", idUser: id }}
+        validationSchema={Yup.object ({
+            description: Yup.string().required('Este campo es obligatorio'),
+            idPriority: Yup.number().required('Este campo es obligatorio'),
+            idState: Yup.number().required('Este campo es obligatorio')
+          })}
+  
+        onSubmit={async (values, {resetForm}) => {
           
-          const response = await axios.put(
-            `${import.meta.env.VITE_URL_SERVER}api/notes/updateNote`,
+          const response = await axios.post(
+            `${import.meta.env.VITE_URL_SERVER}api/notes/createNote`,
             values
           );
-          handleSave(values)
+          resetForm();
+          handleClose()
           Swal.fire({
             tittle: "Info",
             text: response.data.msg,
@@ -75,7 +46,7 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
           })
         }}
       >
-        {({ values,  handleChange, handleSubmit }) => (
+        {({ values, errors, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
             <DialogTitle>
               <TextField
@@ -85,7 +56,9 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
                 name="title"
                 label="Title"
                 onChange={handleChange}
-                value={values?.title}
+                value={values.title}
+                error={errors.title}
+                helperText={errors.title}
               />
             </DialogTitle>
             <DialogContent>
@@ -98,7 +71,9 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
                 maxRows={5}
                 variant="outlined"
                 onChange={handleChange}
-                value={values?.description}
+                value={values.description}
+                error={errors.description}
+                helperText={errors.description}
               />
           
               <FormControl fullWidth sx={{mt:2}}>
@@ -107,9 +82,11 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   name="idPriority"
-                  value={values?.idPriority}
                   label="Priority"
                   onChange={handleChange}
+                  value={values.idPriority}
+                  error={errors.idPriority}
+                  helperText={errors.idPriority}
                 >
                   <MenuItem value={1}>Baja</MenuItem>
                   <MenuItem value={2}>Media</MenuItem>
@@ -122,9 +99,11 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
                   labelId="demo-simple-select-label"
                   id="demo-simple-select"
                   name="idState"
-                  value={values?.idState}
                   label="State"
+                  value={values.idState}
                   onChange={handleChange}
+                  error={errors.idState}
+                  helperText={errors.idState}
                 >
                   <MenuItem value={1}>Pendiente</MenuItem>
                   <MenuItem value={2}>En proceso</MenuItem>
@@ -134,14 +113,12 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
               
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleOpenDeleteDialog}>Eliminar nota</Button>
               <Button onClick={handleClose}>Cancelar</Button>
               <Button type="submit">Guardar</Button>
             </DialogActions>
           </form>
         )}
       </Formik>
-      <DeleteTask isOpen={isDeleteDialogOpen} handleClose={handleCloseDeleteDialog} id={id} handleDeleteComplete={handleDeleteComplete} fetchData={fetchData}/>
     </Dialog>
   );
 };
