@@ -1,11 +1,13 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { Taskpage, UserPage, Dragpage, Calendarpage, EditUser, EditPassw } from '../index'
+import { Taskpage, UserPage, Boardpage, Calendarpage, EditUser, EditPassw } from '../index'
+import { FilterPage } from '../Task/FilterPage'
 
 export const PagesRoutes = () => {
   return (
     <Routes>
       <Route path='Taskpage' element={<Taskpage/>}/>
-      <Route path='Dragpage' element={<Dragpage/>}/>
+      <Route path='Boardpage' element={<Boardpage/>}/>
+      <Route path='Filterpage' element={<FilterPage/>}/>
       <Route path='Calendarpage' element={<Calendarpage/>}/>
       
       <Route path='Userpage' element={<UserPage/>}/>

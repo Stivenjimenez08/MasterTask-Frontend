@@ -5,6 +5,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import TableRowsIcon from '@mui/icons-material/TableRows';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import InsertInvitationIcon from '@mui/icons-material/InsertInvitation';
+import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import { ListItemBtn } from '../../components/atoms/ListItem';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -56,8 +57,9 @@ export const LayoutPages = ({children}) => {
         <Divider/>
         <Box sx={{ overflow: 'auto' }}>
           <List>
-           <ListItemBtn title={'Task Board'} route={"/notes/Dragpage"}> <TableRowsIcon/> </ListItemBtn>
+           <ListItemBtn title={'Task Board'} route={"/notes/Boardpage"}> <TableRowsIcon/> </ListItemBtn>
            <ListItemBtn title={'Tasks'} route={"/notes/Taskpage"}> <ListIcon/> </ListItemBtn>
+           <ListItemBtn title={'Task Filter'} route={"/notes/Filterpage"}> <FilterAltIcon/> </ListItemBtn>
            <ListItemBtn title={'Calendar'} route={"/notes/Calendarpage"}> <InsertInvitationIcon/> </ListItemBtn>
            <ListItemBtn title={'Profile'} route={"/notes/UserPage"}> <ManageAccountsIcon/> </ListItemBtn>
 

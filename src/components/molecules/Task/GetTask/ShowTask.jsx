@@ -22,9 +22,7 @@ export const ShowTask = () => {
   
   const fetchData = async () => {
     try {
-      const response = await axios.get(
-        `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByUser/${user?.id}`
-      );
+      const response = await axios.get( `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByUser/${user?.id}` );
       setData(response.data.note);
     } catch (error) {
       console.error("Error al obtener datos:", error);

@@ -5,5 +5,5 @@ export * from './User/EditPassw'
 
 
 export * from './Task/Taskpage'
-export * from './Drag/DragPage'
+export * from './Board/BoardPage'
 export * from './Calendar/CalendarPage'

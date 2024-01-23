@@ -37,3 +37,55 @@
     margin-left: .1rem;
     margin-top: .3rem;
 }
+.containerBoard{
+    background: #ffff;
+    height: 42.7rem;
+    margin-top: 2.8rem;
+    display: flex;
+}
+.column{
+    width: 26.2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.noteBoard{
+    border: solid 2px black;
+    width: 23rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.titleBoard{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.titleNote, .descriptionNote{
+    width: 20rem;
+    font-size: 1rem;
+    text-align: center;
+    
+}
+.titleNote{
+    text-transform: uppercase;
+}
+.contFilter{
+    height: 41rem;
+    margin-top: 4rem;
+    display: flex;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 38rem;
+    margin-right: 1.3rem;
+}
+.contentSelect{
+    display: flex;
+    margin-left: 2rem;
+    width: 30rem;
+    margin-right: 1.3rem;
+}

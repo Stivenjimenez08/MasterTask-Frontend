@@ -5,4 +5,4 @@ export * from './molecules/User/EditPassword/EditPassword'
 
 export * from './molecules/Calendar/CalendarComponent'
 
-export * from './molecules/DragAndDrop/DragTask'
+export * from './molecules/Board/TaskBoard'
