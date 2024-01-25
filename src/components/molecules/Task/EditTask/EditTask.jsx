@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  TextField,
-} from "@mui/material";
-import { Formik } from "formik";
+
 import axios from "axios";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import { DeleteTask } from "../DeleteTask/DeleteTask";
+import { DeleteTask } from "../../../index";
+import React, { useEffect, useState } from "react";
+
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button, 
+TextField, InputLabel, MenuItem, FormControl, Select } from "@mui/material";
+import { Formik } from "formik";
 import Swal from "sweetalert2";
 
 export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) => {
@@ -63,11 +56,9 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
         }}
         onSubmit={async (values) => {
           
-          const response = await axios.put(
-            `${import.meta.env.VITE_URL_SERVER}api/notes/updateNote`,
-            values
-          );
+          const response = await axios.put( `${import.meta.env.VITE_URL_SERVER}api/notes/updateNote`,  values );
           handleSave(values)
+          
           Swal.fire({
             tittle: "Info",
             text: response.data.msg,
@@ -141,7 +132,14 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
           </form>
         )}
       </Formik>
-      <DeleteTask isOpen={isDeleteDialogOpen} handleClose={handleCloseDeleteDialog} id={id} handleDeleteComplete={handleDeleteComplete} fetchData={fetchData}/>
+
+      <DeleteTask 
+        id={id} 
+        fetchData={fetchData}
+        isOpen={isDeleteDialogOpen} 
+        handleClose={handleCloseDeleteDialog} 
+        handleDeleteComplete={handleDeleteComplete} 
+      />
     </Dialog>
   );
 };

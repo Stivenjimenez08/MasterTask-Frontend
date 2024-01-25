@@ -1,30 +1,22 @@
 import React from "react";
-import { Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Button,
-  TextField,
-} from "@mui/material";
-import { Formik } from "formik";
 import axios from "axios";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import * as Yup from "yup";
-import Swal from "sweetalert2";
 import { useSelector } from "react-redux";
+
+import Swal from "sweetalert2";
+import { Formik } from "formik";
+import { Dialog, DialogTitle, DialogContent, DialogActions, Button,
+TextField, InputLabel, MenuItem, FormControl, Select} from "@mui/material";
 
 
 export const CreateTask = ({ isOpen, handleClose }) => {
 
-  const {id}= useSelector(state => state.auth.user)
+  const user = useSelector(state => state.auth?.user)
 
   return (
     <Dialog open={isOpen} onClose={handleClose}>
       <Formik
-        initialValues={{ title: "", description: "", expirationDate: "", idPriority: "", idState: "", idUser: id }}
+        initialValues={{ title: "", description: "", expirationDate: "", idPriority: "", idState: "", idUser: user?.id }}
         validationSchema={Yup.object ({
             description: Yup.string().required('Este campo es obligatorio'),
             idPriority: Yup.number().required('Este campo es obligatorio'),

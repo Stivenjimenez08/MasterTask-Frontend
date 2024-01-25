@@ -1,6 +1,6 @@
-import { createAsyncThunk, createSlice, isRejectedWithValue } from "@reduxjs/toolkit";
 import axios from "axios";
 import Cookies from "js-cookie";
+import { createAsyncThunk, createSlice, isRejectedWithValue } from "@reduxjs/toolkit";
 
 export const fetchLogin = createAsyncThunk('auth/login', async(formData) =>{
     try {

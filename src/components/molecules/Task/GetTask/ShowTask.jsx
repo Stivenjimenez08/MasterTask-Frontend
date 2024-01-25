@@ -1,12 +1,10 @@
-import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
-import SpeedDial from '@mui/material/SpeedDial';
-import SpeedDialIcon from '@mui/material/SpeedDialIcon';
-import { Paper} from "@mui/material";
-import { EditTask } from "../EditTask/EditTask";
-import { CreateTask } from "../CreateTask/CreateTask";
+import axios from "axios";
+import { EditTask, CreateTask } from "../../../index";
+
+import { SpeedDial, SpeedDialIcon, Paper } from '@mui/material';
 import '../../../StyleComponents.css'
 
 export const ShowTask = () => {
@@ -53,7 +51,7 @@ export const ShowTask = () => {
     <>
     <SpeedDial
         ariaLabel="SpeedDial basic example"
-        sx={{ position: 'absolute', bottom: 50, right: 30 }}
+        sx={{ position: 'fixed', bottom: 50, right: 30 }}
         icon={<SpeedDialIcon />}
         onClick={handleOpenCreateTaskDialog}
       />

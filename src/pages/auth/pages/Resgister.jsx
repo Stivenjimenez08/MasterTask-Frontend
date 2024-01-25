@@ -1,27 +1,28 @@
-import { Button, Grid, IconButton, InputAdornment, Link, TextField } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Link as RouterLink } from "react-router-dom";
-import PersonIcon from "@mui/icons-material/Person";
-import EmailIcon from "@mui/icons-material/Email";
-import { Layout } from "../Layout";
-import { useState } from "react";
-import { Formik } from "formik";
-import * as Yup from "yup";
 import axios from "axios";
+import * as Yup from "yup";
+import { useState } from "react";
+import { Link as RouterLink } from "react-router-dom";
+
 import "../../../style.css";
 import Swal from "sweetalert2";
+import { Formik } from "formik";
+import { Layout } from "../Layout";
+import EmailIcon from "@mui/icons-material/Email";
+import PersonIcon from "@mui/icons-material/Person";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Button, Grid, IconButton, InputAdornment, Link, TextField } from "@mui/material";
 
 export const Register = () => {
+
   const [showPassword, setShowPassword] = useState(false);
-
   const handleClickShowPassword = () => setShowPassword((show) => !show);
-
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
 
   return (
     <Layout title="Create an account" >
+
       <Formik
         initialValues={{ userName: "", email: "", password: "" }}
         validationSchema={Yup.object({
@@ -111,10 +112,7 @@ export const Register = () => {
                 />
 
             
-              <Button
-                type="submit"
-                id="button"
-                >
+              <Button type="submit" id="button" >
                 Create an account
               </Button>
             

@@ -1,13 +1,14 @@
-import { Button, Grid, IconButton, InputAdornment, Link, TextField, } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { fetchLogin } from "../../../lib/slice/authSlice";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
-import EmailIcon from "@mui/icons-material/Email";
-import { useDispatch, useSelector } from "react-redux";
-import { Layout } from "../Layout";
 import { useState } from "react";
-import { Formik } from "formik";
+import { useDispatch } from "react-redux";
+import { fetchLogin } from "../../../index";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+
 import * as Yup from "yup";
+import { Formik } from "formik";
+import { Layout } from "../Layout";
+import EmailIcon from "@mui/icons-material/Email";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Button, Grid, IconButton, InputAdornment, Link, TextField, } from "@mui/material";
 import "../../../style.css";
 
 export const Login = () => {

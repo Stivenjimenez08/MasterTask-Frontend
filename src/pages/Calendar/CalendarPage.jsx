@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { CalendarComponent } from '../../components/index'
 import {LayoutPages} from '../Layout/LayoutPages'
+import { CalendarComponent } from '../../components/index'
 
 export const Calendarpage = () => {
 

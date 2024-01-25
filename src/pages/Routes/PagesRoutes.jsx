@@ -1,6 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { Taskpage, UserPage, Boardpage, Calendarpage, EditUser, EditPassw } from '../index'
-import { FilterPage } from '../Task/FilterPage'
+import { Taskpage, UserPage, Boardpage, Calendarpage, EditUser, EditPassw, FilterPage } from '../index'
 
 export const PagesRoutes = () => {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Dialog, DialogActions, DialogTitle,Button } from "@mui/material"
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import { Dialog, DialogActions, DialogTitle,Button } from "@mui/material"
 
 export const DeleteTask = ({ isOpen, handleClose, id, handleDeleteComplete, fetchData}) =>{
     

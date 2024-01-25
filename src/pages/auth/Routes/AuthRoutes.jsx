@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom'
-import {Login, Register, Recuperate } from '../index'
+import {Login, Register, Recuperate, RecoveryPassword } from '../index'
 
 export const AuthRoutes = () => {
   
@@ -8,6 +8,7 @@ export const AuthRoutes = () => {
       <Route path='login' element={<Login/>}/>
       <Route path='register' element={<Register/>}/>
       <Route path='recuperate' element={<Recuperate/>}/>
+      <Route path='RecoveryPassword/:id' element={<RecoveryPassword/>}/>
 
       <Route path='/*' element={ <Navigate to="/auth/login" /> } />
     </Routes>

@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { ShowTask } from '../../components/index'
 import {LayoutPages} from '../Layout/LayoutPages'
-import { ShowTask } from '../../components/molecules/Task/GetTask/ShowTask'
 
 export const Taskpage = () => {
 

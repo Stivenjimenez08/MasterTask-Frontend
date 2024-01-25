@@ -1,12 +1,23 @@
-import { Button, Grid, InputAdornment, Link, TextField } from "@mui/material";
-import { Link as RouterLink } from "react-router-dom";
-import EmailIcon from "@mui/icons-material/Email";
-import { Layout } from "../Layout";
-import { Formik } from "formik";
-import "../../../style.css";
+import axios from "axios";
 import * as Yup from "yup";
+import { Layout } from "../Layout";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
+
+import "../../../style.css";
+import Swal from "sweetalert2";
+import { Formik } from "formik";
+import EmailIcon from "@mui/icons-material/Email";
+import { Button, Grid, InputAdornment, Link, TextField } from "@mui/material";
 
 export const Recuperate = () => {
+
+  const navigate = useNavigate()
+  const handleComplete = () => {
+    setTimeout (()=>{
+      navigate("/auth/login");
+    }, 1500)
+  };
+
   return (
     <Layout title="Recover your account">
       <Formik
@@ -16,15 +27,16 @@ export const Recuperate = () => {
             .required("Este campo es obligatorio")
             .email("Direccion de correo no valida"),
         })}
-        // onSubmit={async (values) => {
-        //   const response = await axios.post(`${import.meta.env.VITE_URL_SERVER}api/user/createUser`, values);
-
-        //     Swal.fire({
-        //      tittle: "Info",
-        //      text: response.data.msg,
-        //      icon: "success"
-        //    })
-        // }}
+        onSubmit={async (values) => {
+          
+          const response = await axios.post(`${import.meta.env.VITE_URL_SERVER}api/auth/sendEmail`, values);
+          
+            Swal.fire({
+             title: "Info",
+             text: response.data.msg,
+             icon: "success"
+           })
+        }}
       >
         {({ values, errors, handleChange, handleSubmit }) => (
           <form onSubmit={handleSubmit}>
@@ -50,7 +62,7 @@ export const Recuperate = () => {
 
               <Grid container spacing={2} sx={{ mb: 2 }}>
                 <Grid item xs={12} sx={{ mt: 2 }}>
-                  <Button fullWidth id="button">
+                  <Button fullWidth type="submit" id="button" onClick={handleComplete}>
                     send recovery link
                   </Button>
                 </Grid>

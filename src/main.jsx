@@ -1,7 +1,7 @@
 import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { Provider } from 'react-redux'
 import  store  from './lib/store.js'
+import { Provider } from 'react-redux'
+import ReactDOM from 'react-dom/client'
 import { NotesApp } from './NotesApp.jsx'
 import './style.css'
 

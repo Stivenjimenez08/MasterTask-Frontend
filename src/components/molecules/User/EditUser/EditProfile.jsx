@@ -1,16 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { Button, TextField } from "@mui/material";
-// import { useSelector } from "react-redux";
-import { Formik } from "formik";
 import axios from "axios";
 import * as Yup from "yup";
-import "../../../../style.css";
-import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
 
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Button, TextField } from "@mui/material";
+import { Formik } from "formik";
+import Swal from "sweetalert2";
+import "../../../../style.css";
 
 export const EditProfile = () => {
 
@@ -31,7 +29,7 @@ export const EditProfile = () => {
   const handleComplete = () => {
     setTimeout (()=>{
       navigate("/notes/UserPage");
-    }, 2000)
+    }, 1500)
   };
   const handleBack = () => {
     setTimeout (()=>{
@@ -50,7 +48,6 @@ export const EditProfile = () => {
           email: data?.email || "",
           userName: data?.userName || "",
           photo: data?.photo || "",
-          password: data?.password,
         }}
         validationSchema={Yup.object({
           names: Yup.string()
@@ -78,13 +75,16 @@ export const EditProfile = () => {
         }}
       >
         {({ values, errors, handleChange, handleSubmit }) => (
+
           <div className="formProfile">
+
             <div className="backBtn">
               <Button onClick={handleBack} startIcon={<ArrowBackIcon/>} id="btnProfile">
                 back to profile
               </Button>
-            <h2>UPDATE YOUR INFORMATION</h2>
+              <h2>UPDATE YOUR INFORMATION</h2>
             </div>
+            
             <form onSubmit={handleSubmit} id="form">
               <div className="contentTexfield">
                 <TextField
@@ -143,11 +143,13 @@ export const EditProfile = () => {
                   helperText={errors.email}
                 />
               </div>
+
               <div className="updateBtn">
                 <Button type="submit" id="btnProfileEdit" onClick={handleComplete}>
                   update information
                 </Button>
               </div>
+
             </form>
           </div>
         )}
