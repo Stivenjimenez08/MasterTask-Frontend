@@ -7,6 +7,7 @@ import { Dialog, DialogTitle, DialogContent, DialogActions, Button,
 TextField, InputLabel, MenuItem, FormControl, Select } from "@mui/material";
 import { Formik } from "formik";
 import Swal from "sweetalert2";
+import '../../../StyleComponents.css'
 
 export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) => {
 
@@ -91,6 +92,8 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
                 onChange={handleChange}
                 value={values?.description}
               />
+
+              <input id="expirationDate" name="expirationDate" type="date" value={values?.expirationDate} onChange={handleChange}/>
           
               <FormControl fullWidth sx={{mt:2}}>
                 <InputLabel id="demo-simple-select-label">Priority</InputLabel>

@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
@@ -31,6 +31,9 @@ export const ShowTask = () => {
     fetchData();
   }, [update]);
 
+  const updateState = () => {
+    setUpdate(prev => !prev);
+  };
   const handleCardClick = (note) => {
     setSelectedNote(note);
     setIsDialogOpen(true);
@@ -59,7 +62,7 @@ export const ShowTask = () => {
         {data.map((note) => (
           <Paper elevation={3} key={note.id} className="note" onClick={() => handleCardClick(note)}>
             <h3 className="noteTitle"> {note.title} </h3>
-            <p className="description">{note.description}</p>
+            <textarea className="noteDescription" value={note.description} />
             <div className="contDates">
               <p className="noteDate"> Expiration Date: {note.expirationDate} </p>
               <p className="notePriority"> Priority: {note.prioritie.title} </p>
@@ -68,8 +71,8 @@ export const ShowTask = () => {
             </Paper>
         ))}
       </div>
-      <CreateTask isOpen={isCreateTaskDialogOpen} handleClose={() => setIsCreateTaskDialogOpen(false)} />
-      <EditTask isOpen={isDialogOpen} handleClose={handleCloseDialog} note={selectedNote} handleSave={handleSaveNote} fetchData={fetchData} />
+      <CreateTask isOpen={isCreateTaskDialogOpen} handleClose={() => setIsCreateTaskDialogOpen(false)} updateState={updateState}/>
+      <EditTask isOpen={isDialogOpen} handleClose={handleCloseDialog} note={selectedNote} handleSave={handleSaveNote} />
     </>
   );
 };

@@ -7,9 +7,9 @@ import Swal from "sweetalert2";
 import { Formik } from "formik";
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button,
 TextField, InputLabel, MenuItem, FormControl, Select} from "@mui/material";
+import '../../../StyleComponents.css'
 
-
-export const CreateTask = ({ isOpen, handleClose }) => {
+export const CreateTask = ({ isOpen, handleClose, updateState }) => {
 
   const user = useSelector(state => state.auth?.user)
 
@@ -24,21 +24,28 @@ export const CreateTask = ({ isOpen, handleClose }) => {
           })}
   
         onSubmit={async (values, {resetForm}) => {
+          try {
+            const response = await axios.post(
+              `${import.meta.env.VITE_URL_SERVER}api/notes/createNote`,
+              values
+            );
+            updateState();
+            resetForm();
+            handleClose();
+            
+            Swal.fire({
+              title: "Info",
+              text: response.data.msg,
+              icon: "success"
+            })
+          } catch (error) {
+            console.error("Error al crear la nota:", error);
+          }
           
-          const response = await axios.post(
-            `${import.meta.env.VITE_URL_SERVER}api/notes/createNote`,
-            values
-          );
-          resetForm();
-          handleClose()
-          Swal.fire({
-            tittle: "Info",
-            text: response.data.msg,
-            icon: "success"
-          })
         }}
       >
         {({ values, errors, handleChange, handleSubmit }) => (
+
           <form onSubmit={handleSubmit}>
             <DialogTitle>
               <TextField
@@ -67,6 +74,7 @@ export const CreateTask = ({ isOpen, handleClose }) => {
                 error={errors.description}
                 helperText={errors.description}
               />
+              <input id="expirationDate" name="expirationDate" type="date" value={values.expirationDate} onChange={handleChange}/>
           
               <FormControl fullWidth sx={{mt:2}}>
                 <InputLabel id="demo-simple-select-label">Priority</InputLabel>

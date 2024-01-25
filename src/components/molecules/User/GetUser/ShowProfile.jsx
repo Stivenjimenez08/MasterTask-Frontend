@@ -23,7 +23,7 @@ export const ShowProfile = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [user?.id]);
 
   const handleEdit = () =>{
     navigate("/notes/EditUser")

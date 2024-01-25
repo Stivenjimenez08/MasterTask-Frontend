@@ -6,28 +6,33 @@
     flex-wrap: wrap;
 }
 .note{
+    border: solid 2px black;
     height: 20rem;
     width: 17rem;
     margin: .8rem;
-    border: solid 2px rgb(156, 156, 99);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 .noteTitle{
+    width: 15rem;
+    text-align: center;
     font-size: 1rem;
     text-transform: uppercase;
 }
 .noteDescription{
+    border: none;
+    resize: none;
+    height: 4rem;
     width: 15rem;
-    height: 5rem;
+    text-align: center;
     margin-bottom: .5rem;
     font-size: 1rem;
     background: #ffff;
 }
 .contDates{
-    width: 17rem;
+    width: 15rem;
     margin-left: 2rem;
     display: flex;
     flex-direction: column;
@@ -45,6 +50,7 @@
 }
 .column{
     width: 26.2rem;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,4 +94,19 @@
     margin-left: 2rem;
     width: 30rem;
     margin-right: 1.3rem;
+}
+#expirationDate{
+    font-family: sans-serif;
+    font-size: 1rem;
+    padding: 0rem 1rem 0rem .7rem;
+    border-radius:.3rem ;
+    color: rgb(163, 160, 157);
+    border: solid 2px rgb(182, 179, 177);
+    margin-top: .8rem;
+    width: 34.5rem;
+    height: 3rem;
+}
+.column--2{
+    border-left: 2px solid black;
+    border-right: 2px solid black;
 }
