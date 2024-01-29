@@ -12,3 +12,5 @@ export * from './molecules/Task/FilterTask/FilterTask'
 export * from './molecules/Calendar/CalendarComponent'
 
 export * from './molecules/Board/TaskBoard'
+
+export * from './atoms/ListItem'

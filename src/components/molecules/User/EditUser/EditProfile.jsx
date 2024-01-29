@@ -11,7 +11,7 @@ import Swal from "sweetalert2";
 import "../../../../style.css";
 
 export const EditProfile = () => {
-
+  
   const user = useSelector(state => state.auth.user)
   const [data, setData] = useState([]);
   const navigate = useNavigate()
@@ -68,7 +68,7 @@ export const EditProfile = () => {
             values
           );
           Swal.fire({
-            tittle: "Info",
+            title: "Info",
             text: response.data.msg,
             icon: "success",
           });

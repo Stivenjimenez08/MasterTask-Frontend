@@ -9,7 +9,7 @@ const img = "https://www.w3schools.com/howto/img_avatar.png";
 
 export const ShowProfile = () => {
 
-  const user = useSelector(state => state.auth.user)
+  const user = useSelector((state) => state.auth.user)
 
   const [data, setData] = useState([]);
   const navigate = useNavigate()
@@ -23,7 +23,7 @@ export const ShowProfile = () => {
 
   useEffect(() => {
     fetchData();
-  }, [user?.id]);
+  }, [user]);
 
   const handleEdit = () =>{
     navigate("/notes/EditUser")

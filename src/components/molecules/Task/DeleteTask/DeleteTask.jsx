@@ -13,7 +13,7 @@ export const DeleteTask = ({ isOpen, handleClose, id, handleDeleteComplete, fetc
         fetchData();
 
         Swal.fire({
-            tittle: "Info",
+            title: "Info",
             text: response.data.msg,
             icon: "success"
         })

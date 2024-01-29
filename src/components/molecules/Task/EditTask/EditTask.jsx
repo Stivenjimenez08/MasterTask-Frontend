@@ -61,7 +61,7 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
           handleSave(values)
           
           Swal.fire({
-            tittle: "Info",
+            title: "Info",
             text: response.data.msg,
             icon: "success"
           })

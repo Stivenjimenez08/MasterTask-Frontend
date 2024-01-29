@@ -1,5 +1,7 @@
 import axios from 'axios';
+import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
+
 import { Paper } from '@mui/material';
 import '../../StyleComponents.css'
 
@@ -8,18 +10,20 @@ export const TaskBoard = () => {
   const [pending, setPending] = useState([])
   const [process, setProcess] = useState([])
   const [complete, setComplete] = useState([])
+  const user = useSelector((state) => state.auth.user);
 
   const fetchData = async () => {
-    const pending = await axios.get( `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByState/${1}` );
-    const process = await axios.get( `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByState/${2}` );
-    const complete = await axios.get( `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByState/${3}` );
+    const pending = await axios.get( `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByState/${1}/${user?.id}` );
+    const process = await axios.get( `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByState/${2}/${user?.id}` );
+    const complete = await axios.get( `${import.meta.env.VITE_URL_SERVER}api/notes/consultNoteByState/${3}/${user?.id}` );
+
     setPending(pending.data.note)
     setProcess(process.data.note)
     setComplete(complete.data.note)
   }
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [user?.id]);
 
   return (
 
