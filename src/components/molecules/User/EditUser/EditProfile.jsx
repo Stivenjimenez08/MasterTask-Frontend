@@ -24,8 +24,8 @@ export const EditProfile = () => {
       setData(response.data.users);
     };
     fetchData();
-  }, []);
-  
+  }, [user]);
+
   const handleComplete = () => {
     setTimeout (()=>{
       navigate("/notes/UserPage");
@@ -47,7 +47,7 @@ export const EditProfile = () => {
           lastName: data?.lastName || "",
           email: data?.email || "",
           userName: data?.userName || "",
-          photo: data?.photo || "",
+          photo: user?.photo
         }}
         validationSchema={Yup.object({
           names: Yup.string()
@@ -59,8 +59,7 @@ export const EditProfile = () => {
             .min(4, "El Username debe contener al menos 4 caracteres"),
           email: Yup.string()
             .required("Este campo es obligatorio")
-            .email("Direccion de correo no valida"),
-          photo: Yup.string(),
+            .email("Direccion de correo no valida")
         })}
         onSubmit={async (values) => {
           const response = await axios.put(
@@ -96,6 +95,9 @@ export const EditProfile = () => {
                   onChange={handleChange}
                   error={errors.photo}
                   helperText={errors.photo}
+                  InputLabelProps={{
+                    shrink: true
+                  }}
                 />
               </div>
               <div className="contentTexfield">

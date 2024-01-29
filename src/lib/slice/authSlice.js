@@ -6,7 +6,6 @@ export const fetchLogin = createAsyncThunk('auth/login', async(formData) =>{
     try {
         const response = await axios.post(`${import.meta.env.VITE_URL_SERVER}api/auth/login`, formData)
         Cookies.set('token', response.data.token, {expires: 1})
-        console.log('Slice',response)
         return response.data
     } catch (error) {
         return isRejectedWithValue(error)
@@ -34,7 +33,6 @@ export const fetchValidateToken = createAsyncThunk('auth/validateToken', async()
                 'x-token': Cookies.get('token')
             }
         })
-        console.log('validate', response.data)
         return response.data
     } catch (error) {
         return isRejectedWithValue(error)
@@ -61,7 +59,6 @@ const authSlice = createSlice ({
         builder
             .addCase(fetchLogin.fulfilled, (state, action)=>{
                 state.user = action.payload.login
-                console.log('addCase', state.user)
                 state.loading = false
 
             })

@@ -93,7 +93,17 @@ export const EditTask = ({ isOpen, handleClose, note, handleSave, fetchData}) =>
                 value={values?.description}
               />
 
-              <input id="expirationDate" name="expirationDate" type="date" value={values?.expirationDate} onChange={handleChange}/>
+              <TextField sx={{mt:2}}
+                id="expirationDate" 
+                name="expirationDate" 
+                type="date" 
+                fullWidth
+                value={values?.expirationDate} 
+                onChange={handleChange} 
+                inputProps={{
+                  min: new Date().toISOString().split('T')[0] 
+                }}
+              />
           
               <FormControl fullWidth sx={{mt:2}}>
                 <InputLabel id="demo-simple-select-label">Priority</InputLabel>
