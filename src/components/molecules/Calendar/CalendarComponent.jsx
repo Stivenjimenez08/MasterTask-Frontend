@@ -6,7 +6,7 @@ export const CalendarComponent = () => {
     const localizer = dayjsLocalizer(dayjs)
   return (
     <div className="contCalendar">
-      <Calendar localizer={localizer} style={{height:650, width:1250}} />
+      <Calendar localizer={localizer} className="Calendar" />
     </div>
   )
 }

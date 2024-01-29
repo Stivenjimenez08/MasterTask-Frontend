@@ -53,20 +53,21 @@ export const ShowTask = () => {
   return (
     <>
     <SpeedDial
-        ariaLabel="SpeedDial basic example"
-        sx={{ position: 'fixed', bottom: 50, right: 30 }}
-        icon={<SpeedDialIcon />}
-        onClick={handleOpenCreateTaskDialog}
-      />
+      ariaLabel="SpeedDial basic example"
+      sx={{ position: 'fixed', bottom: 50, right: 30 }}
+      icon={<SpeedDialIcon />}
+      onClick={handleOpenCreateTaskDialog}
+    />
+    
       <div className="contentCards">
         {data.map((note) => (
           <Paper elevation={3} key={note.id} className="note" onClick={() => handleCardClick(note)}>
             <h3 className="noteTitle"> {note.title} </h3>
             <textarea className="noteDescription" value={note.description} />
             <div className="contDates">
-              <p className="noteDate"> Expiration Date: {note.expirationDate} </p>
-              <p className="notePriority"> Priority: {note.prioritie.title} </p>
-                <p className="noteState"> State: {note.state.title} </p>
+              <p className="noteDate"> <strong>Expiration Date:</strong> {note.expirationDate} </p>
+              <p className="notePriority"> <strong>Priority:</strong> {note.prioritie.title} </p>
+              <p className="noteState"> <strong>State:</strong> {note.state.title} </p>
             </div>
             </Paper>
         ))}

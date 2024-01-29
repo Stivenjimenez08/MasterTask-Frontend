@@ -28,32 +28,32 @@ export const TaskBoard = () => {
   return (
 
     <div className="containerBoard">
-      <div className="column column--1">
+      <div className="column">
         <p className='titleBoard'>Pendiente</p>
         {pending.map((note) => (
           <Paper elevation={3} key={note.id} className="noteBoard">
             <h3 className="titleNote"> {note.title} </h3>
-            <p className="descriptionNote">{note.description}</p>
+            <textarea className="noteDescription descriptionNote" value={note.description} />
           </Paper>
         ))}
       </div>
 
-      <div className="column column--2">
+      <div className="column">
         <p className='titleBoard'>En Proceso</p>
         {process.map((note) => (
           <Paper elevation={3} key={note.id} className="noteBoard">
             <h3 className="titleNote"> {note.title} </h3>
-            <p className="descriptionNote">{note.description}</p>
+            <textarea className="noteDescription descriptionNote" value={note.description} />
           </Paper>  
         ))}
       </div>
 
-      <div className="column column--3">
+      <div className="column">
         <p className='titleBoard'>Completado</p>
         {complete.map((note) => (
           <Paper elevation={3} key={note.id} className="noteBoard">
             <h3 className="titleNote"> {note.title} </h3>
-            <p className="descriptionNote">{note.description}</p>
+            <textarea className="noteDescription descriptionNote" value={note.description} />
           </Paper>
         ))}
       </div>

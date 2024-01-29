@@ -1,4 +1,5 @@
 import axios from "axios";
+import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import {
   FormControl,
@@ -8,23 +9,22 @@ import {
   Select,
 } from "@mui/material";
 import "../../../StyleComponents.css";
-import { useSelector } from "react-redux";
 
 export const FilterTask = () => {
-
   const [priority, setPriority] = useState([]);
   const [selectedState, setSelectedState] = useState("");
   const [selectedPriority, setSelectedPriority] = useState("");
-  
-  const user = useSelector((state) => state.auth.user);
 
+  const user = useSelector((state) => state.auth.user);
 
   const fetchDataPriority = async () => {
     try {
       const priorityResponse = await axios.get(
         `${
           import.meta.env.VITE_URL_SERVER
-        }api/notes/consultNoteByFilter/${selectedState}/${selectedPriority}/${user?.id}`
+        }api/notes/consultNoteByFilter/${selectedState}/${selectedPriority}/${
+          user?.id
+        }`
       );
       setPriority(priorityResponse.data.note);
     } catch (error) {
@@ -78,21 +78,21 @@ export const FilterTask = () => {
           </div>
         </div>
 
-        <div className="contentCards">
+        <div className="filterCards">
           {priority.map((note) => (
-            <Paper elevation={3} key={note.id} className="note">
+            <Paper elevation={3} key={note.id} className="filterNote">
               <h3 className="noteTitle"> {note.title} </h3>
-              <p className="description">{note.description}</p>
+              <textarea className="noteDescription" value={note.description} />
               <div className="contDates">
                 <p className="noteDate">
-                  {" "}
-                  Expiration Date: {note.expirationDate}{" "}
+                  <strong>Expiration Date:</strong> {note.expirationDate}
                 </p>
                 <p className="notePriority">
-                  {" "}
-                  Priority: {note.prioritie.title}{" "}
+                  <strong>Priority:</strong> {note.prioritie.title}
                 </p>
-                <p className="noteState"> State: {note.state.title} </p>
+                <p className="noteState">
+                  <strong>State:</strong> {note.state.title}
+                </p>
               </div>
             </Paper>
           ))}
