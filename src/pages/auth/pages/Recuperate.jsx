@@ -14,7 +14,7 @@ export const Recuperate = () => {
   const navigate = useNavigate()
   const handleComplete = () => {
     setTimeout (()=>{
-      navigate("/auth/login");
+      navigate("/");
     }, 1500)
   };
 
@@ -73,7 +73,7 @@ export const Recuperate = () => {
               <Link
                 component={RouterLink}
                 underline="none"
-                to="/auth/login"
+                to="/"
                 id="link"
               >
                 Back to login

@@ -4,8 +4,10 @@ import { fetchValidateToken } from './index'
 import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
 
 import { ThemeApp } from './Mui/ThemeApp'
-import { PagesRoutes } from './pages/Routes/PagesRoutes'
-import { AuthRoutes } from './pages/auth/Routes/AuthRoutes'
+// import { PagesRoutes } from './pages/Routes/PagesRoutes'
+// import { AuthRoutes } from './pages/auth/Routes/AuthRoutes'
+
+import { Boardpage, Calendarpage, EditPassw, EditUser, FilterPage, Login, RecoveryPassword, Recuperate, Register, Taskpage, UserPage } from './pages'
 
 export const NotesApp = () => {
   
@@ -22,8 +24,23 @@ export const NotesApp = () => {
     <ThemeApp>
       <Router>
         <Routes>
-           <Route path='/notes/*' element ={<PagesRoutes/>}/> 
-           <Route path='/auth/*' element ={<AuthRoutes/>}/>
+          <Route path='/' element={<Login/>}/>
+          <Route path='/Register' element={<Register/>}/>
+          <Route path='/Recuperate' element={<Recuperate/>}/>
+          <Route path='/RecoveryPassword/:id' element={<RecoveryPassword/>}/>
+
+          <Route path='/Taskpage' element={<Taskpage/>}/>
+          <Route path='/Boardpage' element={<Boardpage/>}/>
+          <Route path='/Filterpage' element={<FilterPage/>}/>
+          <Route path='/Calendarpage' element={<Calendarpage/>}/>
+          
+          <Route path='/Userpage' element={<UserPage/>}/>
+          <Route path='/EditUser' element={<EditUser/>}/>
+          <Route path='/EditPassword' element={<EditPassw/>}/>
+
+          {/* <Route path='/notes/*' element ={<PagesRoutes/>}/> 
+              <Route path='/auth/*' element ={<AuthRoutes/>}/>  
+          */}
         </Routes>
       </Router>
     </ThemeApp>

@@ -123,7 +123,7 @@ export const Register = () => {
                 sx={{ mt: 2, ml: 1 }}
                 component={RouterLink}
                 underline="none"
-                to="/auth/login"
+                to="/"
                 id="link"
               >
                 Already have an account? Enter

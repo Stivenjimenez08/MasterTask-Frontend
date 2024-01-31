@@ -8,3 +8,8 @@ export * from './Task/FilterPage'
 
 export * from './Board/BoardPage'
 export * from './Calendar/CalendarPage'
+
+export * from './auth/pages/Login'
+export * from './auth/pages/Resgister'
+export * from './auth/pages/Recuperate'
+export * from './auth/pages/RecoveryPassword'

@@ -38,7 +38,7 @@ export const Login = () => {
 
           const response = await dispatch(fetchLogin(values))
           if(response.payload.login){
-            return navigate("/notes/TaskPage")
+            return navigate("/Taskpage")
           }     
       }}
       >
@@ -101,7 +101,7 @@ export const Login = () => {
               <Link
                 component={RouterLink}
                 underline="none"
-                to="/auth/register"
+                to="/Register"
                 id="link"
               >
                 Create an account
@@ -112,7 +112,7 @@ export const Login = () => {
               <Link
                 component={RouterLink}
                 underline="none"
-                to="/auth/recuperate"
+                to="/Recuperate"
                 id="link"
                 sx={{ mt: 1 }}
               >

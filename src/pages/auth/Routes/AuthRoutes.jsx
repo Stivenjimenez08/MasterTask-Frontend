@@ -5,12 +5,19 @@ export const AuthRoutes = () => {
   
   return (
     <Routes>
-      <Route path='login' element={<Login/>}/>
-      <Route path='register' element={<Register/>}/>
-      <Route path='recuperate' element={<Recuperate/>}/>
-      <Route path='RecoveryPassword/:id' element={<RecoveryPassword/>}/>
+      <Route path='/' element={<Login/>}/>
+      <Route path='/register' element={<Register/>}/>
+      <Route path='/recuperate' element={<Recuperate/>}/>
+      <Route path='/RecoveryPassword/:id' element={<RecoveryPassword/>}/>
 
-      <Route path='/*' element={ <Navigate to="/auth/login" /> } />
+      {/* <Route path='login' element={<Login/>}/>
+          <Route path='register' element={<Register/>}/>
+          <Route path='recuperate' element={<Recuperate/>}/>
+          <Route path='RecoveryPassword/:id' element={<RecoveryPassword/>}/> 
+          <Route path='/*' element={ <Navigate to="/auth/login" /> } />
+      */}
+
     </Routes>
   )
 }
+      

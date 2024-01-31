@@ -25,7 +25,7 @@ export const RecoveryPassword = () => {
 
   const handleComplete = () => {
     setTimeout(() => {
-      navigate("/auth/login");
+      navigate("/");
     }, 1500);
   };
 
