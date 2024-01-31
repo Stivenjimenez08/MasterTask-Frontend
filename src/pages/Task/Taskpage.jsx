@@ -9,7 +9,7 @@ export const Taskpage = () => {
   const navigate = useNavigate()
 
   if(!user){
-    navigate("/auth/login")
+    navigate("/")
   }
 
   return (

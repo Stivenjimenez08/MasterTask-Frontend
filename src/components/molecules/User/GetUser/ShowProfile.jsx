@@ -26,10 +26,10 @@ export const ShowProfile = () => {
   }, [user]);
 
   const handleEdit = () =>{
-    navigate("/notes/EditUser")
+    navigate("/EditUser")
   }
   const handleEditPassword = () =>{
-    navigate("/notes/EditPassword")
+    navigate("/EditPassword")
   }
 
   return (

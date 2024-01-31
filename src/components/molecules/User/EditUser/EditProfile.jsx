@@ -28,12 +28,12 @@ export const EditProfile = () => {
 
   const handleComplete = () => {
     setTimeout (()=>{
-      navigate("/notes/UserPage");
+      navigate("/UserPage");
     }, 1500)
   };
   const handleBack = () => {
     setTimeout (()=>{
-      navigate("/notes/UserPage");
+      navigate("/UserPage");
     },100)
   };
 

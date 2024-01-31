@@ -12,7 +12,7 @@ import TextSnippetIcon from '@mui/icons-material/TextSnippet';
 import ManageAccountsIcon from '@mui/icons-material/ManageAccounts';
 import InsertInvitationIcon from '@mui/icons-material/InsertInvitation';
 import { Box, Drawer, AppBar, Toolbar, CssBaseline, Divider, List, Typography, 
-ListItemButton, ListItemIcon, ListItemText, Icon} from '@mui/material';
+ListItemButton, ListItemIcon, ListItemText} from '@mui/material';
 
 const drawerWidth = 230;
 const img = "https://www.w3schools.com/howto/img_avatar.png";
@@ -26,7 +26,7 @@ export const LayoutPages = ({children}) => {
 
   const handleLogout = () =>{
       dispatch(fetchLogout())
-      navigate('/auth/login')
+      navigate('/')
   }
 
   return (
@@ -61,11 +61,11 @@ export const LayoutPages = ({children}) => {
         <Divider/>
         <Box sx={{ overflow: 'auto' }}>
           <List>
-           <ListItemBtn title={'Task Board'} route={"/notes/Boardpage"}> <TableRowsIcon/> </ListItemBtn>
-           <ListItemBtn title={'Tasks'} route={"/notes/Taskpage"}> <ListIcon/> </ListItemBtn>
-           <ListItemBtn title={'Task Filter'} route={"/notes/Filterpage"}> <FilterAltIcon/> </ListItemBtn>
-           <ListItemBtn title={'Calendar'} route={"/notes/Calendarpage"}> <InsertInvitationIcon/> </ListItemBtn>
-           <ListItemBtn title={'Profile'} route={"/notes/UserPage"}> <ManageAccountsIcon/> </ListItemBtn>
+           <ListItemBtn title={'Task Board'} route={"/Boardpage"}> <TableRowsIcon/> </ListItemBtn>
+           <ListItemBtn title={'Tasks'} route={"/Taskpage"}> <ListIcon/> </ListItemBtn>
+           <ListItemBtn title={'Task Filter'} route={"/Filterpage"}> <FilterAltIcon/> </ListItemBtn>
+           <ListItemBtn title={'Calendar'} route={"/Calendarpage"}> <InsertInvitationIcon/> </ListItemBtn>
+           <ListItemBtn title={'Profile'} route={"/UserPage"}> <ManageAccountsIcon/> </ListItemBtn>
 
            <ListItemButton onClick={()=>{handleLogout()}} >
             <ListItemIcon> <LogoutIcon/> </ListItemIcon>

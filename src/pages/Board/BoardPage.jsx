@@ -8,7 +8,7 @@ export const Boardpage = () => {
   const navigate = useNavigate()
 
   if(!user){
-    navigate("/auth/login")
+    navigate("/")
   }
   return (
     <LayoutPages>

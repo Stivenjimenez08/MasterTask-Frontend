@@ -4,10 +4,8 @@ import { fetchValidateToken } from './index'
 import {BrowserRouter as Router, Routes,Route} from 'react-router-dom'
 
 import { ThemeApp } from './Mui/ThemeApp'
-// import { PagesRoutes } from './pages/Routes/PagesRoutes'
-// import { AuthRoutes } from './pages/auth/Routes/AuthRoutes'
-
-import { Boardpage, Calendarpage, EditPassw, EditUser, FilterPage, Login, RecoveryPassword, Recuperate, Register, Taskpage, UserPage } from './pages'
+import { Boardpage, Calendarpage, EditPassw, EditUser, FilterPage, Login, 
+RecoveryPassword, Recuperate, Register, Taskpage, UserPage } from './pages'
 
 export const NotesApp = () => {
   
@@ -37,10 +35,6 @@ export const NotesApp = () => {
           <Route path='/Userpage' element={<UserPage/>}/>
           <Route path='/EditUser' element={<EditUser/>}/>
           <Route path='/EditPassword' element={<EditPassw/>}/>
-
-          {/* <Route path='/notes/*' element ={<PagesRoutes/>}/> 
-              <Route path='/auth/*' element ={<AuthRoutes/>}/>  
-          */}
         </Routes>
       </Router>
     </ThemeApp>

@@ -9,7 +9,7 @@ export const EditPassw= () => {
   const navigate = useNavigate()
 
   if(!user){
-    navigate("/auth/login")
+    navigate("/")
   }
   
   return (
