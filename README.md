@@ -48,8 +48,10 @@ Haz clic en el siguiente enlace para acceder a nuestra página web y crear tu us
 ![Create an account](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/401116d3-6e4b-4a4a-bebe-61d6aee19b7f)
 3. En caso de ya tener una cuenta pero no recordar la contraseña debes seleccionar **Cant't sign in?** para ir a la siguiente vista, donde tendras que ingresar tu correo para que se envie un enlace de recuperación y puedas realizar el cambio de contraseña 
       ![Recovery your account](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/ce4f6ee3-4ccf-475e-aad4-cb6fca474e8a)
+      
 4. Una vez inicies sesion la vista principal sera la seccion de **Task**, en esta vista podras crear nuevas notas, ver tus notas creadas y tambien editar o eliminar tus notas.
 ![Task](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/f151c7d0-5344-4ab8-b231-d32ac75f17bf)
+
 5. En la opcion del menu **Profile** tendras la siguiente vista
 ![Profile](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/77fc036a-6ebc-481a-b8f2-9d45a557b4bf)
    * Para editar tu informacion da click al boton **Update profile** y te llevara a la siguiente vista, una vez hallas modificado la informacion que requieras(la actualización de foto de perfil se realiza mediante url) da click al boton **update information** para guardar todos los cambios. 
@@ -64,9 +66,9 @@ Haz clic en el siguiente enlace para acceder a nuestra página web y crear tu us
    
 7. Cuando tienes notas creadas se vera de la siguiente manera
 ![Note](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/6597c1f2-dba3-46cc-a09b-84c8c935386b)
-   *Para editar la nota basta con dar click sobre ella para que se pueda visualizar y editar toda la informacion de la nota necesaria. Una vez termines de editar la nota oprime el boton guardar para actualizar la informacion modificada.
+   * Para editar la nota basta con dar click sobre ella para que se pueda visualizar y editar toda la informacion de la nota necesaria. Una vez termines de editar la nota oprime el boton guardar para actualizar la informacion modificada.
    ![Edit note](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/575490d1-835a-4b96-a736-208872a39976)
-   *Para eliminar una nota basta con dar click sobre ella para poder visualizar la nota (es la misma vista de edicion) y dar click al boton de eliminar. Una vez le das click a este boton te pide confirmar la eliminacion de la nota, lo cual se hace dando click en el boton eliminar. De esta manera la nota deja de mostrarse en la vista de Task
+   * Para eliminar una nota basta con dar click sobre ella para poder visualizar la nota (es la misma vista de edicion) y dar click al boton de eliminar. Una vez le das click a este boton te pide confirmar la eliminacion de la nota, lo cual se hace dando click en el boton eliminar. De esta manera la nota deja de mostrarse en la vista de Task
    ![Delete note](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/c2069fa3-8ac6-4c3b-8331-de374cab736c)
 8. En la opcion del menu **Task Board** podras ver todas tus notas organizadas de acuerdo a su estado (pendiente, en proceso o completado) de la sigueinte manera
    ![Task Board](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/51dee851-b1e9-4619-b049-e8b87bb158bf)
