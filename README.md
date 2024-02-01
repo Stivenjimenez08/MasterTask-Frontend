@@ -46,6 +46,7 @@ Haz clic en el siguiente enlace para acceder a nuestra página web y crear tu us
 2. Aqui tendras que crear tu cuenta ingresando un nombre de usuario, correo valido (en caso de perder tu contraseña a este correo sera enviado un enlace de recuperación) y contraseña. Una vez presiones el boton de create an account seras redirigido a la vista principal (login).
 
 ![Create an account](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/401116d3-6e4b-4a4a-bebe-61d6aee19b7f)
+
 3. En caso de ya tener una cuenta pero no recordar la contraseña debes seleccionar **Cant't sign in?** para ir a la siguiente vista, donde tendras que ingresar tu correo para que se envie un enlace de recuperación y puedas realizar el cambio de contraseña 
       ![Recovery your account](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/ce4f6ee3-4ccf-475e-aad4-cb6fca474e8a)
       
