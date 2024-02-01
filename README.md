@@ -43,19 +43,20 @@ Haz clic en el siguiente enlace para acceder a nuestra página web y crear tu us
 
 1. Al iniciar la aplicación, serás recibido por la vista inicial. Para crear tu cuenta, simplemente haz clic en **Create an account**, lo que te llevará a la siguiente vista (Vista 2).
 ![Login](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/58251ca7-a4d1-497d-8e6b-732f2440e0b0)
-2. Aqui tendras que crear tu cuenta ingresando un nombre de usuario, correo valido (en caso de perder tu contraseña a este correo sera enviado un enlace de recuperación) y contraseña. Una vez presiones el boton de create an account seras redirigido a la vista principal (login)
+2. Aqui tendras que crear tu cuenta ingresando un nombre de usuario, correo valido (en caso de perder tu contraseña a este correo sera enviado un enlace de recuperación) y contraseña. Una vez presiones el boton de create an account seras redirigido a la vista principal (login).
+
 ![Create an account](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/401116d3-6e4b-4a4a-bebe-61d6aee19b7f)
 3. En caso de ya tener una cuenta pero no recordar la contraseña debes seleccionar **Cant't sign in?** para ir a la siguiente vista, donde tendras que ingresar tu correo para que se envie un enlace de recuperación y puedas realizar el cambio de contraseña 
-![Recovery your account](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/ce4f6ee3-4ccf-475e-aad4-cb6fca474e8a)
+      ![Recovery your account](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/ce4f6ee3-4ccf-475e-aad4-cb6fca474e8a)
 4. Una vez inicies sesion la vista principal sera la seccion de **Task**, en esta vista podras crear nuevas notas, ver tus notas creadas y tambien editar o eliminar tus notas.
 ![Task](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/f151c7d0-5344-4ab8-b231-d32ac75f17bf)
 5. En la opcion del menu **Profile** tendras la siguiente vista
 ![Profile](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/77fc036a-6ebc-481a-b8f2-9d45a557b4bf)
-   -Para editar tu informacion da click al boton **Update profile** y te llevara a la siguiente vista, una vez hallas modificado la informacion que requieras(la actualización de foto de perfil se realiza mediante url) da click al boton **update information** para guardar todos los cambios. 
+   * Para editar tu informacion da click al boton **Update profile** y te llevara a la siguiente vista, una vez hallas modificado la informacion que requieras(la actualización de foto de perfil se realiza mediante url) da click al boton **update information** para guardar todos los cambios. 
    ![Edit profile](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/b855125e-03d9-4ab8-a945-b43e5f033558)
-   -Para cambiar tu contraseña  da click al boton **Update password** que te llevara a la sigueinte vista, una vez hallas introducido tu nueva contraseña da click al boton **update Password** para guardar los cambios
+   * Para cambiar tu contraseña  da click al boton **Update password** que te llevara a la sigueinte vista, una vez hallas introducido tu nueva contraseña da click al boton **update Password** para guardar los cambios
    ![update password](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/3b0fe88f-ea55-47fa-89cf-6ef6bc5e8096)
-   -Una vez hallas cambiado la informacion que necesites tu perfil podria verse de la siguiente manera
+   * Una vez hallas cambiado la informacion que necesites tu perfil podria verse de la siguiente manera
    ![profile](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/1c005b85-6c15-495f-9ba5-4bbfc2479f40)
 
 6.Ahora volvemos a apartado de menu **Task**. Para crear una nota debes dar click al signo + que aparece en la parte inferior derecha de la pantalla y podras visualizar lo siguiente. Una vez completes toda la informacion necesaria oprime el boton guardar para terminar de crear la nota.
@@ -63,9 +64,9 @@ Haz clic en el siguiente enlace para acceder a nuestra página web y crear tu us
    
 7. Cuando tienes notas creadas se vera de la siguiente manera
 ![Note](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/6597c1f2-dba3-46cc-a09b-84c8c935386b)
-   -Para editar la nota basta con dar click sobre ella para que se pueda visualizar y editar toda la informacion de la nota necesaria. Una vez termines de editar la nota oprime el boton guardar para actualizar la informacion modificada.
+   *Para editar la nota basta con dar click sobre ella para que se pueda visualizar y editar toda la informacion de la nota necesaria. Una vez termines de editar la nota oprime el boton guardar para actualizar la informacion modificada.
    ![Edit note](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/575490d1-835a-4b96-a736-208872a39976)
-   -Para eliminar una nota basta con dar click sobre ella para poder visualizar la nota (es la misma vista de edicion) y dar click al boton de eliminar. Una vez le das click a este boton te pide confirmar la eliminacion de la nota, lo cual se hace dando click en el boton eliminar. De esta manera la nota deja de mostrarse en la vista de Task
+   *Para eliminar una nota basta con dar click sobre ella para poder visualizar la nota (es la misma vista de edicion) y dar click al boton de eliminar. Una vez le das click a este boton te pide confirmar la eliminacion de la nota, lo cual se hace dando click en el boton eliminar. De esta manera la nota deja de mostrarse en la vista de Task
    ![Delete note](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/c2069fa3-8ac6-4c3b-8331-de374cab736c)
 8. En la opcion del menu **Task Board** podras ver todas tus notas organizadas de acuerdo a su estado (pendiente, en proceso o completado) de la sigueinte manera
    ![Task Board](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/51dee851-b1e9-4619-b049-e8b87bb158bf)
@@ -74,5 +75,56 @@ Haz clic en el siguiente enlace para acceder a nuestra página web y crear tu us
 10. En la opcion del menu **Calendar** podras visualizar un calendario por el que podras navegar y visualizar el dia para el cual quieras agregar una nota
    ![Calendar](https://github.com/Stivenjimenez08/MasterTask-Frontend/assets/117239706/76f1493d-b2e4-4f12-a4a9-4f2a6428fe76)
 11. Para cerrar tu sesión da click a la ultima opcion del menu **Logout**, esto te llevara nuevamente a la vista de login
+## Despliegue en local
+Si desea bajar el repositorio y correrlo en local debe seguir los siguientes pasos
+```
+#Clonar repositorio desde cmd
+$ git clone https://github.com/Stivenjimenez08/MasterTask-Frontend.git
 
+# Instalacion de dependencias
+$ npm install
 
+# Servidor en el puerto localhost:3000
+$ npm run dev
+
+# Produccion
+$ npm run build
+$ npm run start
+ ```
+Recuerde que debe configurar las variables de entorno tanto del front-end como del back-end para que funcione correctamente de forma local 
+## Dependencias
+A continuación  prodra visualizar todas las dependencias que se utilizaron en el proyecto desde react, las dependencias de node.js las podra visualizar en el respectivo repositorio del cual se dejara el enlace al final de este archivo
+```
+"dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.15.0",
+    "@mui/material": "^5.15.0",
+    "@reduxjs/toolkit": "^2.0.1",
+    "axios": "^1.6.5",
+    "dayjs": "^1.11.10",
+    "formik": "^2.4.5",
+    "js-cookie": "^3.0.5",
+    "react": "^18.2.0",
+    "react-big-calendar": "^1.8.6",
+    "react-dom": "^18.2.0",
+    "react-redux": "^9.1.0",
+    "react-router-dom": "^6.21.0",
+    "serve": "^14.2.1",
+    "sweetalert2": "^11.10.3",
+    "yup": "^1.3.3"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "vite": "^5.0.8"
+  }
+}
+```
+# Readme.md del backend
+[readme.md]([docs/CONTRIBUTING.md](https://github.com/Stivenjimenez08/Ztecnology-Backend/blob/main/README.md)https://github.com/Stivenjimenez08/Ztecnology-Backend/blob/main/README.md)
